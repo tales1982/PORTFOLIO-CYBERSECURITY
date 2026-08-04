@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(npx tsc *)",
+      "Bash(npx next *)",
+      "Bash(curl -s http://localhost:3000 -o /dev/null -w \"%{http_code}\\\\n\")",
+      "Bash(kill %1)",
+      "Bash(curl -sL http://localhost:3001/en -o /dev/null -w \"%{http_code}\\\\n\")",
+      "Bash(curl -sL http://localhost:3001/fr -o /dev/null -w \"%{http_code}\\\\n\")",
+      "Bash(cat /tmp/next-dev.log)",
+      "Read(//tmp/**)",
+      "Bash(curl -sL http://localhost:3001/en -o /dev/null -w \"EN: %{http_code}\\\\n\")",
+      "Bash(curl -sL http://localhost:3001/fr -o /dev/null -w \"FR: %{http_code}\\\\n\")",
+      "Bash(curl -sL http://localhost:3001/ -o /dev/null -w \"Root redirect: %{http_code}\\\\n\")",
+      "Bash(npm run dev > /tmp/next-final.log 2>&1 & *)",
+      "Bash(npm --prefix /home/tales/Documents/SITES-PESOAL/PORTFOLIO-CYBERSECURITY run build)",
+      "Bash(curl -s http://localhost:3000 -o /dev/null -w \"/ → %{http_code}\\\\n\")",
+      "Bash(curl -s http://localhost:3000/en -o /dev/null -w \"/en → %{http_code}\\\\n\")",
+      "Bash(curl -s http://localhost:3000/fr -o /dev/null -w \"/fr → %{http_code}\\\\n\")",
+      "Bash(curl -s http://localhost:3001/en -o /tmp/page-en.html)",
+      "Bash(curl -s http://localhost:3001/fr -o /tmp/page-fr.html)",
+      "Bash(curl -s http://localhost:3001/en)",
+      "Bash(pkill -f \"next dev\")",
+      "Bash(pkill -f \"next-server\")",
+      "Bash(fuser -k 3000/tcp 3001/tcp)",
+      "Bash(curl -s http://localhost:3000/en)",
+      "Bash(curl -sv http://localhost:3000/en)",
+      "Bash(curl -s \"http://localhost:3000/en\")",
+      "Bash(curl -s \"http://localhost:3000/fr\")",
+      "Bash(curl -s http://localhost:3000/fr)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('version:', d['version']\\)\")",
+      "Bash(node -e ' *)",
+      "Bash(python3 -c ' *)",
+      "Bash(fuser -k 3000/tcp)"
+    ],
+    "additionalDirectories": [
+      "/tmp"
+    ]
+  }
+}

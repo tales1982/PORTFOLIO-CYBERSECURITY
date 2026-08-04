@@ -1,0 +1,159 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "education": "Formation",
+    "skills": "Compétences",
+    "certifications": "Certifications",
+    "projects": "Projets",
+    "journey": "Parcours",
+    "contact": "Contact",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu"
+  },
+  "hero": {
+    "greeting": "Bonjour, je suis",
+    "name": "Tales Lima de Paula",
+    "subtitle": "Étudiant en Cybersécurité  ·  Développeur Logiciel  ·  Expérience Blockchain",
+    "headline": "Construire des solutions numériques sécurisées grâce à la cybersécurité, le développement logiciel et l'apprentissage continu.",
+    "viewProjects": "Voir les projets",
+    "viewCertifications": "Certifications",
+    "contactMe": "Me contacter",
+    "scrollDown": "Défiler vers le bas",
+    "statusLabel": "Disponible pour des opportunités",
+    "badge1": "Test d'intrusion",
+    "badge2": "Sécurité Web",
+    "badge3": "Sécurité Réseau",
+    "badge4": "Modélisation des menaces"
+  },
+  "about": {
+    "title": "À propos de moi",
+    "subtitle": "Un parcours passionné du génie logiciel à la cybersécurité",
+    "p1": "Je suis Tales Lima de Paula, étudiant en cybersécurité et développeur logiciel expérimenté basé au Luxembourg. Mon parcours dans la technologie a commencé à 42 Luxembourg, l'une des écoles d'ingénierie logicielle les plus rigoureuses d'Europe, où j'ai passé des années à maîtriser la programmation bas niveau, les algorithmes et l'architecture des systèmes grâce à un modèle d'apprentissage par les pairs intensif — sans enseignants, sans cours, uniquement la résolution de problèmes.",
+    "p2": "Après avoir obtenu mon diplôme de 42, je suis entré dans l'industrie blockchain en tant que développeur, concevant et déployant des applications décentralisées et des smart contracts sur Ethereum. Ce rôle a approfondi ma compréhension des systèmes distribués sécurisés, des principes cryptographiques, et de l'importance critique de la sécurité du code dans les applications financières — où une seule vulnérabilité peut avoir des conséquences catastrophiques.",
+    "p3": "Mon expérience en blockchain m'a naturellement conduit à ma passion actuelle : la cybersécurité. Je poursuis actuellement un diplôme en Cybersécurité à Unigran Europa à Bruxelles et un programme spécialisé en Cybersécurité à la DLH Academy au Luxembourg. Mes intérêts couvrent la sécurité des applications web, la sécurité des réseaux, les tests d'intrusion, la modélisation des menaces et l'évaluation des vulnérabilités. Je crois que comprendre comment les systèmes sont attaqués est la meilleure façon d'apprendre à les défendre.",
+    "highlight1Title": "Diplômé de 42 Luxembourg",
+    "highlight1Desc": "École d'ingénierie logicielle pair-à-pair",
+    "highlight2Title": "Développeur Blockchain",
+    "highlight2Desc": "Smart contracts et applications DeFi",
+    "highlight3Title": "Étudiant en Cybersécurité",
+    "highlight3Desc": "Tests d'intrusion et modélisation des menaces",
+    "highlight4Title": "État d'esprit Sécurité",
+    "highlight4Desc": "Sécurité offensive et défensive",
+    "statYears": "Ans dans la Tech",
+    "statProjects": "Projets",
+    "statCerts": "Certifications",
+    "statFocus": "Domaine de focus"
+  },
+  "education": {
+    "title": "Formation",
+    "subtitle": "Bases académiques et formation spécialisée en cybersécurité",
+    "status": {
+      "completed": "Terminé",
+      "inProgress": "En cours"
+    },
+    "viewMore": "En savoir plus",
+    "period": "Période",
+    "location": "Lieu",
+    "program": "Programme"
+  },
+  "skills": {
+    "title": "Compétences Techniques",
+    "subtitle": "Un ensemble diversifié d'outils couvrant la cybersécurité, le développement et la blockchain",
+    "categories": {
+      "cybersecurity": "Cybersécurité",
+      "tools": "Outils de Sécurité",
+      "programming": "Programmation",
+      "blockchain": "Blockchain"
+    }
+  },
+  "certifications": {
+    "title": "Certifications",
+    "subtitle": "Accréditations professionnelles et réalisations de formation continue",
+    "status": {
+      "valid": "Valide",
+      "expired": "Expiré",
+      "noExpiration": "Sans expiration"
+    },
+    "viewCredential": "Voir le justificatif",
+    "issued": "Délivré",
+    "expires": "Expire",
+    "noExpiry": "Sans expiration",
+    "credential": "Justificatif",
+    "empty": "Certifications à venir"
+  },
+  "projects": {
+    "title": "Projets",
+    "subtitle": "Recherche en sécurité pratique, expériences de développement et applications blockchain",
+    "filterAll": "Tous",
+    "filterSecurity": "Sécurité",
+    "filterDevelopment": "Développement",
+    "filterBlockchain": "Blockchain",
+    "viewGithub": "GitHub",
+    "viewDemo": "Démo en direct",
+    "technologies": "Technologies",
+    "featured": "À la une"
+  },
+  "journey": {
+    "title": "Mon Parcours en Cybersécurité",
+    "subtitle": "Des fondations du génie logiciel vers un professionnel dédié à la cybersécurité",
+    "step1Year": "2023–2026",
+    "step1Title": "42 Luxembourg — Les Fondations",
+    "step1Desc": "Début d'un programme intensif d'ingénierie logicielle à 42 Luxembourg, maîtrisant C, C++, les algorithmes, les systèmes Unix et le développement full-stack grâce à un apprentissage par projet incessant. Cette expérience a construit une solide base technique et une mentalité de résolution de problèmes qui sous-tend tout ce que je fais aujourd'hui.",
+    "step2Year": "2024–2026",
+    "step2Title": "Développeur Blockchain",
+    "step2Desc": "Intégration de l'industrie blockchain en tant que développeur, construisant des applications décentralisées et des smart contracts sur Ethereum. Expérience pratique acquise avec Solidity, la sécurité Web3, la tokenisation et les protocoles DeFi — apprenant que le code financier exige des pratiques de sécurité quasi parfaites.",
+    "step3Year": "2025",
+    "step3Title": "Le Pivot Sécurité",
+    "step3Desc": "Fasciné par la façon dont les systèmes sont exploités et sécurisés, je me suis engagé dans une carrière en cybersécurité. Début de l'auto-formation via TryHackMe, HackTheBox et Cybrary, obtention des premières certifications et découverte d'une passion pour les tests d'intrusion et la recherche de vulnérabilités.",
+    "step4Year": "2025–Présent",
+    "step4Title": "Études Formelles en Cybersécurité",
+    "step4Desc": "Inscrit simultanément en diplôme de Cybersécurité à Unigran Europa (Bruxelles) et en Spécialisation Cybersécurité à la DLH Academy (Luxembourg). Étude active de la sécurité des réseaux, du hacking éthique, de la criminalistique numérique, de la modélisation des menaces et de la réponse aux incidents.",
+    "step5Year": "Futur",
+    "step5Title": "Carrière Professionnelle en Sécurité",
+    "step5Desc": "Ciblant des rôles en tests d'intrusion, conseil en sécurité ou opérations d'équipe rouge. Aspiration à long terme : contribuer à la construction d'écosystèmes numériques plus sécurisés et aider les organisations à identifier et éliminer les vulnérabilités avant que les attaquants puissent les exploiter.",
+    "current": "Actuel",
+    "goal": "Objectif"
+  },
+  "contact": {
+    "title": "Entrer en Contact",
+    "subtitle": "Disponible pour des opportunités de stage, des projets freelance et des collaborations professionnelles en cybersécurité et développement logiciel.",
+    "email": "E-mail",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "location": "Localisation",
+    "locationValue": "Luxembourg",
+    "downloadCV": "Télécharger le CV",
+    "availableFor": "Disponible pour",
+    "roles": "Stages · Freelance · Postes à temps plein",
+    "sendMessage": "Envoyer un message",
+    "namePlaceholder": "Votre nom",
+    "emailPlaceholder": "votre.email@exemple.com",
+    "messagePlaceholder": "Parlez-moi de votre projet ou opportunité...",
+    "send": "Envoyer le message",
+    "sending": "Envoi en cours...",
+    "successMessage": "Message envoyé avec succès ! Je vous répondrai bientôt.",
+    "errorMessage": "Quelque chose s'est mal passé. Veuillez réessayer ou me contacter directement."
+  },
+  "footer": {
+    "rights": "Tous droits réservés",
+    "madeWith": "Construit avec",
+    "builtBy": "par Tales Lima de Paula",
+    "and": "et",
+    "navigation": "Navigation",
+    "connect": "Contact"
+  },
+  "theme": {
+    "toggleLight": "Passer en mode clair",
+    "toggleDark": "Passer en mode sombre"
+  },
+  "language": {
+    "en": "EN",
+    "fr": "FR",
+    "switchTo": "Changer de langue"
+  },
+  "meta": {
+    "title": "Tales Lima de Paula — Portfolio Cybersécurité",
+    "description": "Portfolio professionnel de Tales Lima de Paula en cybersécurité. Étudiant en cybersécurité, développeur logiciel et expérience blockchain. Spécialisé en sécurité web, tests d'intrusion et sécurité réseau."
+  }
+}
