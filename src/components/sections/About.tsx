@@ -193,7 +193,7 @@ export default function About() {
           <AboutText $visible={textVisible} ref={textRef as React.RefObject<HTMLDivElement>}>
             <ProfilePhotoFrame>
               <Image
-                src="/images/about/profile.jpg"
+                src="/images/about/profile.png"
                 alt="Tales Lima de Paula"
                 fill
                 sizes="168px"
