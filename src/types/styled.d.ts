@@ -1,9 +1,7 @@
 import 'styled-components';
-import { lightTheme } from '@/styles/theme';
-import type { ThemeMode } from '@/styles/theme';
-
-type BaseTheme = Omit<typeof lightTheme, 'mode'> & { mode: ThemeMode };
+import type { AppTheme } from '@/styles/theme';
 
 declare module 'styled-components' {
-  export interface DefaultTheme extends BaseTheme {}
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+  export interface DefaultTheme extends AppTheme {}
 }

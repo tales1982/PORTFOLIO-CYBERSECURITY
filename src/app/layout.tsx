@@ -1,23 +1,5 @@
-import { Inter, JetBrains_Mono } from 'next/font/google';
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-});
-
-const jetBrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  variable: '--font-mono',
-  display: 'swap',
-});
-
+// The real root layout (with <html> and <body>) is app/[locale]/layout.tsx,
+// so the lang attribute is correct in the server HTML.
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${jetBrainsMono.variable}`} suppressHydrationWarning>
-        {children}
-      </body>
-    </html>
-  );
+  return children;
 }

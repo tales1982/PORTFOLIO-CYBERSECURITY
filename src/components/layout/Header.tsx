@@ -1,278 +1,203 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
-import { useTranslations } from 'next-intl';
-import ThemeToggle from '@/components/ui/ThemeToggle';
-import LanguageToggle from '@/components/ui/LanguageToggle';
+import { useLocale, useTranslations } from 'next-intl';
+import { Magnetic, ArrowLink } from '@/components/ui/Layout';
+import { CV_FILES, EMAIL, LINKS as SOCIAL } from '@/data/contact';
 
-const HeaderWrapper = styled.header<{ $scrolled: boolean }>`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: var(--header-height);
-  z-index: ${({ theme }) => theme.zIndex.sticky};
-  display: flex;
-  align-items: center;
-  transition: all ${({ theme }) => theme.transitions.normal};
-
-  ${({ $scrolled, theme }) =>
-    $scrolled
-      ? css`
-          background: ${theme.colors.navBg};
-          backdrop-filter: blur(16px);
-          -webkit-backdrop-filter: blur(16px);
-          border-bottom: 1px solid ${theme.colors.border};
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        `
-      : css`
-          background: transparent;
-        `}
-`;
-
-const Nav = styled.nav`
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 ${({ theme }) => theme.spacing.lg};
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: ${({ theme }) => theme.spacing.md};
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    padding: 0 ${({ theme }) => theme.spacing.sm};
-  }
-`;
-
-const Logo = styled.a`
-  display: flex;
-  align-items: center;
-  gap: 0.625rem;
-  text-decoration: none;
-  flex-shrink: 0;
-`;
-
-const LogoIcon = styled.div`
-  width: 36px;
-  height: 36px;
-  color: ${({ theme }) => theme.colors.primary};
-`;
-
-const LogoText = styled.span`
-  font-family: ${({ theme }) => theme.fonts.mono};
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: ${({ theme }) => theme.colors.text};
-
-  span {
-    color: ${({ theme }) => theme.colors.primary};
-  }
-`;
-
-const NavLinks = styled.ul`
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  list-style: none;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
-    display: none;
-  }
-`;
-
-const NavLink = styled.a`
-  display: block;
-  padding: 0.4rem 0.75rem;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: ${({ theme }) => theme.colors.textSecondary};
-  border-radius: ${({ theme }) => theme.borderRadius.sm};
-  transition: all ${({ theme }) => theme.transitions.fast};
-  text-decoration: none;
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.primary};
-    background: ${({ theme }) => theme.colors.surfaceHover};
-  }
-`;
-
-const Controls = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.625rem;
-  flex-shrink: 0;
-`;
-
-const MenuButton = styled.button`
-  display: none;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: ${({ theme }) => theme.borderRadius.md};
-  background: ${({ theme }) => theme.colors.surface};
-  border: 1px solid ${({ theme }) => theme.colors.border};
-  color: ${({ theme }) => theme.colors.textSecondary};
-  cursor: pointer;
-  transition: all ${({ theme }) => theme.transitions.fast};
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.primary};
-    border-color: ${({ theme }) => theme.colors.primary};
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
-    display: flex;
-  }
-`;
-
-const MobileMenu = styled.div<{ $open: boolean }>`
-  position: fixed;
-  top: var(--header-height);
-  left: 0;
-  right: 0;
-  background: ${({ theme }) => theme.colors.navBg};
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
-  padding: ${({ theme }) => theme.spacing.sm};
-  z-index: ${({ theme }) => theme.zIndex.sticky};
-  transform: ${({ $open }) => ($open ? 'translateY(0)' : 'translateY(-10px)')};
-  opacity: ${({ $open }) => ($open ? 1 : 0)};
-  pointer-events: ${({ $open }) => ($open ? 'auto' : 'none')};
-  transition: all ${({ theme }) => theme.transitions.normal};
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-    display: none;
-  }
-`;
-
-const MobileNavLinks = styled.ul`
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 ${({ theme }) => theme.spacing.sm};
-`;
-
-const MobileNavLink = styled.a`
-  display: block;
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
-  font-weight: 500;
-  color: ${({ theme }) => theme.colors.text};
-  border-radius: ${({ theme }) => theme.borderRadius.md};
-  transition: all ${({ theme }) => theme.transitions.fast};
-  text-decoration: none;
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.primary};
-    background: ${({ theme }) => theme.colors.surfaceHover};
-  }
-`;
-
-const navItems = [
-  { href: '#about', key: 'about' },
-  { href: '#education', key: 'education' },
-  { href: '#skills', key: 'skills' },
-  { href: '#certifications', key: 'certifications' },
-  { href: '#projects', key: 'projects' },
-  { href: '#journey', key: 'journey' },
-  { href: '#contact', key: 'contact' },
+const LINKS = ['work', 'about', 'skills', 'experience', 'contact'] as const;
+const LANGS = [
+  { code: 'en', label: 'EN', name: 'English' },
+  { code: 'fr', label: 'FR', name: 'Français' },
 ];
 
-export default function Header() {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const t = useTranslations('nav');
+const Bar = styled.header<{ $tone: string }>`
+  position: fixed; inset: 0 0 auto 0; z-index: 60;
+  padding: 1.1rem ${({ theme }) => theme.gutter};
+  display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+  color: ${({ $tone }) => ($tone === 'light' ? 'var(--ink)' : 'var(--soft)')};
+  transition: color 0.4s ease;
+  pointer-events: none;
+  > * { pointer-events: auto; }
+`;
 
+const Mark = styled.a`
+  font-family: ${({ theme }) => theme.fonts.display}; font-size: 1.05rem; letter-spacing: -0.02em; white-space: nowrap;
+  .full { display: inline; } .short { display: none; }
+  @media (max-width: ${({ theme }) => theme.bp.sm}) { .full { display: none; } .short { display: inline; } }
+`;
+
+const Inline = styled.nav<{ $hidden: boolean }>`
+  display: flex; align-items: center; gap: 2rem; margin-left: auto;
+  transition: opacity 0.4s ease, transform 0.5s ${({ theme }) => theme.ease};
+  ul { display: flex; gap: 1.75rem; }
+  a { position: relative; font-size: 0.95rem; }
+  a::after { content: ''; position: absolute; left: 0; right: 0; bottom: -0.2rem; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform 0.45s ${({ theme }) => theme.ease}; }
+  a:hover::after, a:focus-visible::after { transform: scaleX(1); transform-origin: left; }
+  ${({ $hidden }) => $hidden && css`opacity: 0; transform: translateY(-0.75rem); visibility: hidden; transition: opacity 0.3s ease, transform 0.4s ease, visibility 0s 0.4s;`}
+  @media (max-width: ${({ theme }) => theme.bp.md}) { display: none; }
+`;
+
+const Langs = styled.ul`
+  display: flex; gap: 0.25rem; font-size: 0.85rem;
+  a { padding: 0.35rem 0.5rem; opacity: 0.55; transition: opacity 0.2s ease; }
+  a[aria-current='page'], a:hover { opacity: 1; }
+`;
+
+const MenuBtn = styled.button<{ $show: boolean; $open: boolean }>`
+  display: inline-flex; align-items: center; gap: 0.7rem; height: 3rem; padding: 0 1.25rem 0 1.1rem;
+  border-radius: 999px; font-weight: 550; color: #fff;
+  background: ${({ $open }) => ($open ? 'transparent' : 'var(--blue)')};
+  border: 1px solid ${({ $open }) => ($open ? 'rgba(255,255,255,0.3)' : 'var(--blue)')};
+  transition: transform 0.5s ${({ theme }) => theme.ease}, opacity 0.3s ease, background-color 0.3s ease;
+  i { position: relative; width: 16px; height: 8px; }
+  i::before, i::after { content: ''; position: absolute; left: 0; width: 100%; height: 1.5px; background: currentColor; transition: transform 0.4s ${({ theme }) => theme.ease}; }
+  i::before { top: 0; } i::after { bottom: 0; }
+  ${({ $open }) => $open && css`i::before { transform: translateY(3.25px) rotate(45deg); } i::after { transform: translateY(-3.25px) rotate(-45deg); }`}
+  @media (min-width: 901px) {
+    ${({ $show }) => !$show && css`transform: scale(0.6); opacity: 0; visibility: hidden;`}
+  }
+`;
+
+/* ---------- Full-screen menu ---------- */
+
+const Overlay = styled.div<{ $open: boolean }>`
+  position: fixed; inset: 0; z-index: 55;
+  background: var(--graphite); color: var(--soft);
+  display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: 2rem 4rem; align-content: end;
+  padding: 7rem ${({ theme }) => theme.gutter} clamp(2rem, 5vw, 4rem);
+  overflow-y: auto; overscroll-behavior: contain;
+  clip-path: inset(0 0 100% 0);
+  visibility: hidden;
+  transition: clip-path 0.8s ${({ theme }) => theme.ease}, visibility 0s 0.8s;
+  ${({ $open }) => $open && css`clip-path: inset(0 0 0 0); visibility: visible; transition: clip-path 0.8s ${({ theme }) => theme.ease};`}
+  @media (max-width: ${({ theme }) => theme.bp.md}) { grid-template-columns: 1fr; align-content: start; padding-top: 6rem; }
+
+  .links li { overflow: hidden; border-top: 1px solid rgba(243, 243, 241, 0.12); }
+  .links li:last-child { border-bottom: 1px solid rgba(243, 243, 241, 0.12); }
+  .links a {
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 0.35rem;
+    font-family: ${({ theme }) => theme.fonts.display}; font-size: clamp(2.25rem, 6.5vw, 5.25rem); letter-spacing: -0.04em; line-height: 1.1;
+    transform: translateY(105%); transition: transform 0.9s ${({ theme }) => theme.ease}, color 0.3s ease;
+    transition-delay: calc(0.18s + var(--i) * 0.06s), 0s;
+  }
+  .links a svg { width: 0.5em; height: 0.5em; opacity: 0; transform: translateX(-1rem); transition: opacity 0.3s ease, transform 0.45s ${({ theme }) => theme.ease}; }
+  .links a:hover, .links a:focus-visible { color: var(--blue-light); }
+  .links a:hover svg, .links a:focus-visible svg { opacity: 1; transform: none; }
+  ${({ $open }) => $open && css`.links a { transform: none; }`}
+
+  aside { display: grid; gap: 2rem; align-content: end; opacity: 0; transition: opacity 0.6s ease 0.4s; }
+  ${({ $open }) => $open && css`aside { opacity: 1; }`}
+  aside h3 { font-family: ${({ theme }) => theme.fonts.body}; font-size: 0.85rem; letter-spacing: 0; color: #a2a7af; margin-bottom: 0.6rem; font-weight: 500; }
+  aside li + li { margin-top: 0.35rem; }
+`;
+
+export default function Header() {
+  const t = useTranslations('nav');
+  const locale = useLocale();
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [tone, setTone] = useState('dark');
+  const btnRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+
+  // Header color follows the section underneath it.
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const sections = [...document.querySelectorAll<HTMLElement>('main [data-tone], footer[data-tone]')];
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.isIntersecting && setTone((e.target as HTMLElement).dataset.tone ?? 'dark')),
+      { rootMargin: '0px 0px -94% 0px' },
+    );
+    sections.forEach((s) => io.observe(s));
+    const onScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.6);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => { io.disconnect(); window.removeEventListener('scroll', onScroll); };
   }, []);
 
-  const handleNavClick = () => setMenuOpen(false);
+  const close = useCallback((restore = true) => {
+    setOpen(false);
+    if (restore) btnRef.current?.focus();
+  }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const panel = panelRef.current!;
+    const focusables = () => [btnRef.current!, ...panel.querySelectorAll<HTMLElement>('a[href], button')];
+    const first = panel.querySelector<HTMLElement>('.links a');
+    const timer = window.setTimeout(() => first?.focus(), 250);
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') { e.preventDefault(); close(); return; }
+      if (e.key !== 'Tab') return;
+      const list = focusables();
+      const i = list.indexOf(document.activeElement as HTMLElement);
+      if (e.shiftKey && i <= 0) { e.preventDefault(); list[list.length - 1].focus(); }
+      else if (!e.shiftKey && i === list.length - 1) { e.preventDefault(); list[0].focus(); }
+    };
+    document.addEventListener('keydown', onKey);
+    return () => { window.clearTimeout(timer); document.removeEventListener('keydown', onKey); };
+  }, [open, close]);
+
+  const langList = (
+    <Langs>
+      {LANGS.map((l) => (
+        <li key={l.code}>
+          <a href={`/${l.code}`} hrefLang={l.code} lang={l.code} aria-current={l.code === locale ? 'page' : undefined}>
+            <span aria-hidden="true">{l.label}</span><span className="visually-hidden">{l.name}</span>
+          </a>
+        </li>
+      ))}
+    </Langs>
+  );
 
   return (
     <>
-      <HeaderWrapper $scrolled={scrolled}>
-        <Nav>
-          <Logo href="#hero">
-            <LogoIcon>
-              <svg viewBox="0 0 36 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M18 2L3 9V22C3 31.5 9.5 40.3 18 43C26.5 40.3 33 31.5 33 22V9L18 2Z"
-                  fill="currentColor"
-                  opacity="0.15"
-                />
-                <path
-                  d="M18 2L3 9V22C3 31.5 9.5 40.3 18 43C26.5 40.3 33 31.5 33 22V9L18 2Z"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M12 22L16 26L24 16"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </LogoIcon>
-            <LogoText>
-              <span>TL</span>P
-            </LogoText>
-          </Logo>
+      <Bar $tone={open ? 'dark' : tone}>
+        <a className="visually-hidden" href="#main" onFocus={(e) => e.currentTarget.classList.remove('visually-hidden')} onBlur={(e) => e.currentTarget.classList.add('visually-hidden')}>{t('skip')}</a>
+        <Mark href="#top" aria-label={t('home')}><span className="full">Tales Lima de Paula</span><span className="short">Tales Lima</span></Mark>
+        <Inline aria-label={t('label')} $hidden={scrolled || open}>
+          <ul>{LINKS.map((k) => <li key={k}><a href={`#${k}`}>{t(k)}</a></li>)}</ul>
+          <nav aria-label={t('language')}>{langList}</nav>
+        </Inline>
+        <Magnetic strength={0.25}>
+          <MenuBtn ref={btnRef} type="button" $show={scrolled || open} $open={open}
+            aria-expanded={open} aria-controls="site-menu" onClick={() => (open ? close() : setOpen(true))}>
+            <i aria-hidden="true" />
+            <span data-magnetic-label>{open ? t('close') : t('menu')}</span>
+          </MenuBtn>
+        </Magnetic>
+      </Bar>
 
-          <NavLinks>
-            {navItems.map((item) => (
-              <li key={item.key}>
-                <NavLink href={item.href}>{t(item.key as any)}</NavLink>
+      <Overlay id="site-menu" ref={panelRef} $open={open} role="dialog" aria-modal="true" aria-label={t('menuTitle')} data-tone="dark">
+        <nav aria-label={t('label')}>
+          <ul className="links">
+            {LINKS.map((k, i) => (
+              <li key={k}>
+                <a href={`#${k}`} style={{ '--i': i } as React.CSSProperties} onClick={() => close(false)} tabIndex={open ? 0 : -1}>
+                  {t(k)}
+                  <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1" aria-hidden="true"><path d="M1 6h10M7 2l4 4-4 4" /></svg>
+                </a>
               </li>
             ))}
-          </NavLinks>
-
-          <Controls>
-            <ThemeToggle />
-            <LanguageToggle />
-            <MenuButton
-              onClick={() => setMenuOpen(!menuOpen)}
-              aria-label={menuOpen ? t('closeMenu') : t('openMenu')}
-            >
-              {menuOpen ? (
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                  <line x1="6" y1="6" x2="18" y2="18" />
-                </svg>
-              ) : (
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                  <line x1="3" y1="6" x2="21" y2="6" />
-                  <line x1="3" y1="12" x2="21" y2="12" />
-                  <line x1="3" y1="18" x2="21" y2="18" />
-                </svg>
-              )}
-            </MenuButton>
-          </Controls>
-        </Nav>
-      </HeaderWrapper>
-
-      <MobileMenu $open={menuOpen}>
-        <MobileNavLinks>
-          {navItems.map((item) => (
-            <li key={item.key}>
-              <MobileNavLink href={item.href} onClick={handleNavClick}>
-                {t(item.key as any)}
-              </MobileNavLink>
-            </li>
-          ))}
-        </MobileNavLinks>
-      </MobileMenu>
+          </ul>
+        </nav>
+        <aside>
+          <div>
+            <h3>{t('reach')}</h3>
+            <ul>
+              <li><ArrowLink href={`mailto:${EMAIL}`}>{EMAIL}</ArrowLink></li>
+              <li><ArrowLink href={SOCIAL.linkedin} external>LinkedIn</ArrowLink></li>
+              <li><ArrowLink href={SOCIAL.github} external>GitHub</ArrowLink></li>
+              <li><ArrowLink href={CV_FILES[locale] ?? CV_FILES.en} dir="s" download>CV (PDF)</ArrowLink></li>
+            </ul>
+          </div>
+          <div>
+            <h3>{t('language')}</h3>
+            {langList}
+          </div>
+        </aside>
+      </Overlay>
     </>
   );
 }

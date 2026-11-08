@@ -1,159 +1,195 @@
 {
+  "meta": {
+    "title": "Tales Lima de Paula, developer moving into SOC analysis",
+    "description": "Developer based in Luxembourg, looking for a SOC Analyst L1 role. Home SOC lab with Wazuh, Suricata and TheHive, isolation automated with Python and Ansible, and a background in Java, Spring Boot and Solidity."
+  },
+  "common": {
+    "newTab": "(opens in a new tab)"
+  },
   "nav": {
-    "home": "Home",
+    "label": "Main",
+    "work": "Work",
     "about": "About",
-    "education": "Education",
     "skills": "Skills",
-    "certifications": "Certifications",
-    "projects": "Projects",
-    "journey": "Journey",
+    "experience": "Experience",
     "contact": "Contact",
-    "openMenu": "Open menu",
-    "closeMenu": "Close menu"
-  },
-  "hero": {
-    "greeting": "Hello, I'm",
-    "name": "Tales Lima de Paula",
-    "subtitle": "Cybersecurity Student  ·  Software Developer  ·  Blockchain Background",
-    "headline": "Building secure digital solutions through cybersecurity, software development, and continuous learning.",
-    "viewProjects": "View Projects",
-    "viewCertifications": "Certifications",
-    "contactMe": "Contact Me",
-    "scrollDown": "Scroll down",
-    "statusLabel": "Available for opportunities",
-    "badge1": "Pentesting",
-    "badge2": "Web Security",
-    "badge3": "Network Security",
-    "badge4": "Threat Modeling"
-  },
-  "about": {
-    "title": "About Me",
-    "subtitle": "A passionate journey from software engineering to cybersecurity",
-    "p1": "I'm Tales Lima de Paula, a cybersecurity student and experienced software developer based in Luxembourg. My path into technology began at 42 Luxembourg, one of Europe's most rigorous software engineering schools, where I spent years mastering low-level programming, algorithms, and systems architecture through an intensive peer-to-peer learning model — no teachers, no classes, just pure problem-solving.",
-    "p2": "After graduating from 42, I entered the blockchain industry as a developer, designing and deploying decentralized applications and smart contracts on Ethereum. This role deepened my understanding of secure distributed systems, cryptographic principles, and the critical importance of code security in financial applications — where a single vulnerability can have catastrophic consequences.",
-    "p3": "My time in blockchain naturally led me to my current passion: cybersecurity. I'm now pursuing a Cybersecurity degree at Unigran Europa in Brussels and a specialized Cybersecurity program at DLH Academy in Luxembourg. My interests span web application security, network security, penetration testing, threat modeling, and vulnerability assessment. I believe understanding how systems are attacked is the best way to learn how to defend them.",
-    "highlight1Title": "42 Luxembourg Graduate",
-    "highlight1Desc": "Peer-to-peer software engineering school",
-    "highlight2Title": "Blockchain Developer",
-    "highlight2Desc": "Smart contracts & DeFi applications",
-    "highlight3Title": "Cybersecurity Student",
-    "highlight3Desc": "Penetration testing & threat modeling",
-    "highlight4Title": "Security Mindset",
-    "highlight4Desc": "Offensive & defensive security",
-    "statYears": "Years in Tech",
-    "statProjects": "Projects",
-    "statCerts": "Certifications",
-    "statFocus": "Focus Area"
-  },
-  "education": {
-    "title": "Education",
-    "subtitle": "Academic foundations and specialized cybersecurity training",
-    "status": {
-      "completed": "Completed",
-      "inProgress": "In Progress"
-    },
-    "viewMore": "Learn more",
-    "period": "Period",
-    "location": "Location",
-    "program": "Program"
-  },
-  "skills": {
-    "title": "Technical Skills",
-    "subtitle": "A diverse toolkit spanning cybersecurity, development, and blockchain",
-    "categories": {
-      "cybersecurity": "Cybersecurity",
-      "tools": "Security Tools",
-      "programming": "Programming",
-      "blockchain": "Blockchain"
-    }
-  },
-  "certifications": {
-    "title": "Certifications",
-    "subtitle": "Professional credentials and continuing education achievements",
-    "status": {
-      "valid": "Valid",
-      "expired": "Expired",
-      "noExpiration": "No Expiration"
-    },
-    "viewCredential": "View Credential",
-    "issued": "Issued",
-    "expires": "Expires",
-    "noExpiry": "No Expiry",
-    "credential": "Credential",
-    "empty": "Certifications coming soon"
-  },
-  "projects": {
-    "title": "Projects",
-    "subtitle": "Hands-on security research, development experiments, and blockchain applications",
-    "filterAll": "All",
-    "filterSecurity": "Security",
-    "filterDevelopment": "Development",
-    "filterBlockchain": "Blockchain",
-    "viewGithub": "GitHub",
-    "viewDemo": "Live Demo",
-    "technologies": "Technologies",
-    "featured": "Featured"
-  },
-  "journey": {
-    "title": "My Cybersecurity Journey",
-    "subtitle": "From software engineering roots to a dedicated cybersecurity professional",
-    "step1Year": "2023–2026",
-    "step1Title": "42 Luxembourg — The Foundations",
-    "step1Desc": "Began an intensive software engineering program at 42 Luxembourg, mastering C, C++, algorithms, Unix systems, and full-stack development through relentless project-based learning. This experience built a deep technical foundation and a problem-solving mindset that underpins everything I do today.",
-    "step2Year": "2024–2026",
-    "step2Title": "Blockchain Developer",
-    "step2Desc": "Joined the blockchain industry as a developer, building decentralized applications and smart contracts on Ethereum. Gained hands-on experience with Solidity, Web3 security, tokenization, and DeFi protocols — learning that financial code demands near-perfect security practices.",
-    "step3Year": "2025",
-    "step3Title": "The Security Pivot",
-    "step3Desc": "Fascinated by how systems are exploited and secured, I committed to a career in cybersecurity. Began self-study through TryHackMe, HackTheBox, and Cybrary, earning early certifications and discovering a passion for penetration testing and vulnerability research.",
-    "step4Year": "2025–Present",
-    "step4Title": "Formal Cybersecurity Studies",
-    "step4Desc": "Enrolled simultaneously in a Cybersecurity degree at Unigran Europa (Brussels) and a Cybersecurity Specialization at DLH Academy (Luxembourg). Actively studying network security, ethical hacking, digital forensics, threat modeling, and incident response.",
-    "step5Year": "Future",
-    "step5Title": "Professional Security Career",
-    "step5Desc": "Targeting roles in penetration testing, security consulting, or red team operations. Long-term aspiration: to contribute to building more secure digital ecosystems and help organizations identify and eliminate vulnerabilities before attackers can exploit them.",
-    "current": "Current",
-    "goal": "Goal"
-  },
-  "contact": {
-    "title": "Get In Touch",
-    "subtitle": "Open to internship opportunities, freelance projects, and professional collaborations in cybersecurity and software development.",
-    "email": "Email",
-    "linkedin": "LinkedIn",
-    "github": "GitHub",
-    "location": "Location",
-    "locationValue": "Luxembourg",
-    "downloadCV": "Download CV",
-    "availableFor": "Available for",
-    "roles": "Internships · Freelance · Full-time Roles",
-    "sendMessage": "Send a Message",
-    "namePlaceholder": "Your name",
-    "emailPlaceholder": "your.email@example.com",
-    "messagePlaceholder": "Tell me about your project or opportunity...",
-    "send": "Send Message",
-    "sending": "Sending...",
-    "successMessage": "Message sent successfully! I'll get back to you soon.",
-    "errorMessage": "Something went wrong. Please try again or contact me directly."
-  },
-  "footer": {
-    "rights": "All rights reserved",
-    "madeWith": "Built with",
-    "builtBy": "by Tales Lima de Paula",
-    "and": "and",
-    "navigation": "Navigation",
-    "connect": "Connect"
-  },
-  "theme": {
-    "toggleLight": "Switch to light mode",
-    "toggleDark": "Switch to dark mode"
+    "skip": "Skip to content",
+    "home": "Tales Lima de Paula, back to top",
+    "menu": "Menu",
+    "close": "Close",
+    "menuTitle": "Site menu",
+    "reach": "Get in touch",
+    "language": "Language"
   },
   "language": {
-    "en": "EN",
-    "fr": "FR",
-    "switchTo": "Switch language"
+    "label": "Language"
   },
-  "meta": {
-    "title": "Tales Lima de Paula — Cybersecurity Portfolio",
-    "description": "Professional cybersecurity portfolio of Tales Lima de Paula. Cybersecurity student, software developer, and blockchain background. Specializing in web security, penetration testing, and network security."
+  "hero": {
+    "status": "Based in Luxembourg, open to SOC Analyst L1 roles",
+    "name": "Tales Lima\nde Paula",
+    "lede": "Software developer moving into defensive security. I’m looking for my first SOC Analyst L1 role.",
+    "ctaWork": "See projects",
+    "ctaContact": "Contact",
+    "cv": "CV (PDF)",
+    "hint": "Point at a node, or press Tab, to see what it stands for.",
+    "touchHint": "Tap a node to jump to its projects.",
+    "scroll": "Scroll to projects",
+    "nodes": {
+      "develop": "Develop",
+      "developHint": "Software and blockchain",
+      "detect": "Detect",
+      "detectHint": "SOC lab: Wazuh, Suricata, TheHive",
+      "respond": "Respond",
+      "respondHint": "Isolation with Python and Ansible"
+    }
+  },
+  "statement": {
+    "text": "I spent more than two years\nbuilding software. Now I’m\ntraining to defend systems\nlike the ones I build.",
+    "body": "I graduated from 42 Luxembourg, completed the DLH Academy Common Core, and I’m now in its Blue Team track aimed at SOC L1 work. I also study cybersecurity at Unigran Europa. Knowing how software is built helps me read what a system is doing when an alert fires.",
+    "stepsLabel": "How my work connects",
+    "develop": "Develop",
+    "developText": "Java and Spring Boot APIs, Next.js and TypeScript front ends, Solidity smart contracts.",
+    "detect": "Detect",
+    "detectText": "Collect events with Wazuh, Suricata, Sysmon and auditd, follow traffic in Wireshark, open cases in TheHive.",
+    "respond": "Respond",
+    "respondText": "Isolate a host with Python, Ansible and firewall rules while keeping the access an investigator needs."
+  },
+  "status": {
+    "live": "Online",
+    "lab": "Lab",
+    "progress": "In development",
+    "training": "Training"
+  },
+  "work": {
+    "title": "Selected work",
+    "intro": "Security labs first, because they are closest to the job I want. Then the software I’ve shipped as a developer.",
+    "security": "Security",
+    "software": "Software and blockchain",
+    "readCase": "Read the case",
+    "visitSite": "Visit the site",
+    "previewDiagram": "Simplified diagram",
+    "dlhPreview": "Windows hardening\nAlert triage\nWireshark analysis\nThreat hunting in 14 days of logs\nIncident response playbooks"
+  },
+  "cases": {
+    "title": "Security work\nin detail",
+    "context": "The problem",
+    "built": "What I built",
+    "learned": "What came out of it",
+    "tools": "Tools",
+    "phasesTitle": "Where it stands",
+    "done": "Built",
+    "progress": "In progress",
+    "next": "Next",
+    "imageAlt": "Home page of the SOC lab guide, a real screenshot",
+    "imageCaption": "Real screenshot of the public guide I wrote from my build notes."
+  },
+  "software": {
+    "title": "Software and\nblockchain",
+    "intro": "Before security I was a developer, and I still am. Every project here is online.",
+    "role": "My role",
+    "visit": "Visit {name}",
+    "imageAlt": "Home page of {name}, a real screenshot"
+  },
+  "about": {
+    "title": "From code\nto the SOC",
+    "p1": "I learned to program at 42 Luxembourg, a school without teachers or lectures. You get a project, you build it, and other students review your code. I graduated in March 2026.",
+    "p2": "I have worked with blockchain and Solidity for more than two years. I’m one of the co-founders of Zaori Capital, a regulated fintech that tokenizes real-world assets, and I worked on its platform myself. Security is part of every feature there: identity checks before anyone can hold a token, secrets kept out of the code, and smart contracts that cannot be patched once deployed.",
+    "p3": "That work made me curious about what happens after the code ships: who watches the systems, and what they do when something goes wrong. So I completed the Common Core at DLH Academy, moved on to its defensive track, and started a cybersecurity degree at Unigran Europa. I practise in my own lab and, through November 2026, on a proof of concept during my internship at BCE.",
+    "photoAlt": "Portrait of Tales Lima de Paula",
+    "location": "Based in",
+    "locationValue": "Luxembourg",
+    "languages": "Languages",
+    "languagesValue": "Portuguese (native), French (advanced), English (intermediate)",
+    "timelineTitle": "How I got here"
+  },
+  "skills": {
+    "title": "Skills",
+    "intro": "Grouped by the kind of work. Open a group to see what I do with each tool and where you can check it.",
+    "tool": "Tool or skill",
+    "use": "What I do with it",
+    "evidence": "See it in"
+  },
+  "experience": {
+    "title": "Experience\nand education",
+    "work": "Work",
+    "study": "Education",
+    "ongoing": "In progress",
+    "done": "Completed",
+    "certsTitle": "Certifications",
+    "issued": "Issued {date}",
+    "expires": "valid until {date}",
+    "view": "View credential"
+  },
+  "contact": {
+    "title": "Hiring for a SOC team?\nWrite to me.",
+    "intro": "I’m looking for a SOC Analyst L1 role in Luxembourg. Email is the quickest way to reach me.",
+    "copy": "Copy email",
+    "copied": "Email copied",
+    "copyFailed": "Couldn’t copy. Select the address instead.",
+    "elsewhere": "Elsewhere",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "cvEn": "CV in English (PDF)",
+    "cvFr": "CV in French (PDF)",
+    "formTitle": "Or leave a message",
+    "name": "Name",
+    "emailField": "Your email",
+    "message": "Message",
+    "send": "Send message",
+    "sending": "Sending…",
+    "success": "Thanks, your message was sent. I’ll reply by email.",
+    "error": "The message could not be sent. Try again, or write to me directly by email."
+  },
+  "footer": {
+    "source": "Source code",
+    "top": "Back to top",
+    "made": "Designed and built by me with Next.js."
+  },
+  "diagrams": {
+    "caption": "Simplified diagram of what I built. A sketch of the architecture, not a live dashboard.",
+    "captionStatus": "Simplified diagram. Nothing here has been measured yet.",
+    "built": "Built",
+    "inProgress": "In progress",
+    "planned": "Planned",
+    "soc": {
+      "title": "Simplified diagram of the home SOC lab",
+      "endpoints": "Endpoints",
+      "endpointsSub": "Sysmon and auditd",
+      "network": "Network traffic",
+      "networkSub": "Lab network",
+      "wazuh": "Wazuh",
+      "wazuhSub": "Events, rules, FIM",
+      "suricata": "Suricata",
+      "suricataSub": "Network IDS",
+      "thehive": "TheHive + Cortex",
+      "thehiveSub": "Cases",
+      "analyst": "Me",
+      "analystSub": "Triage, investigation"
+    },
+    "isolation": {
+      "title": "Simplified diagram of the automated isolation",
+      "alert": "Wazuh alert",
+      "alertSub": "Ransomware-like activity",
+      "automation": "Python + Ansible",
+      "automationSub": "Response automation",
+      "quarantine": "Host quarantined",
+      "quarantineSub": "Investigator access kept",
+      "worker": "Clean Docker worker",
+      "workerSub": "Takes over the service",
+      "report": "Forensic report",
+      "reportSub": "Written automatically"
+    },
+    "continuity": {
+      "title": "Simplified diagram of the BCE internship proof of concept",
+      "group": "Segmented Docker networks",
+      "transA": "Transcoder A",
+      "transASub": "The affected one",
+      "transB": "Transcoder B",
+      "transBSub": "Takes over",
+      "detection": "Detection",
+      "detectionSub": "Suspicious activity",
+      "isolation": "Isolation",
+      "isolationSub": "Cut off transcoder A"
+    }
   }
 }

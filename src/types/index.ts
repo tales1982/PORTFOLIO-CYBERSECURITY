@@ -1,63 +1,80 @@
-export type ThemeMode = 'light' | 'dark';
 export type Locale = 'en' | 'fr';
-export type CertStatus = 'valid' | 'expired' | 'noExpiration';
-export type ProjectCategory = 'security' | 'development' | 'blockchain' | 'all';
-export type EducationStatus = 'completed' | 'inProgress';
 
 export interface LocalizedString {
   en: string;
   fr: string;
 }
 
+// live = online and finished, lab = home lab, progress = in development,
+// training = coursework still running
+export type Status = 'live' | 'lab' | 'progress' | 'training';
+
+export interface ProjectLink {
+  label: LocalizedString;
+  href: string;
+}
+
+export interface SecurityCase {
+  id: string;
+  title: LocalizedString;
+  kind: LocalizedString; // one line for the project index
+  diagram?: 'soc' | 'isolation' | 'continuity';
+  status: Status;
+  context: LocalizedString;
+  built?: LocalizedString;
+  learned?: LocalizedString;
+  // For work in progress: what exists, what is being built, what comes next
+  phases?: { state: 'done' | 'progress' | 'next'; text: LocalizedString }[];
+  note?: LocalizedString;
+  tools: string[];
+  links: ProjectLink[];
+  image?: string;
+  compact?: boolean;
+}
+
+export interface SoftwareProject {
+  id: string;
+  name: string;
+  kind: LocalizedString;
+  description: LocalizedString;
+  role?: LocalizedString;
+  tools: string[];
+  image: string;
+  url: string;
+}
+
+export interface SkillArea {
+  id: string;
+  title: LocalizedString;
+  summary: LocalizedString;
+  items: { name: string | LocalizedString; use: LocalizedString }[];
+  evidence: { label: LocalizedString; href: string }[];
+}
+
+export interface ExperienceEntry {
+  id: string;
+  kind: 'work' | 'study';
+  title: LocalizedString;
+  org: string | LocalizedString;
+  place: LocalizedString;
+  period: LocalizedString;
+  ongoing: boolean;
+  description: LocalizedString;
+}
+
+export interface TimelineEvent {
+  date: string; // YYYY-MM
+  label: LocalizedString;
+  when: LocalizedString;
+  current?: boolean;
+}
+
 export interface Certification {
   id: number;
-  name: string | LocalizedString;
-  issuer: string | LocalizedString;
-  issueDate: string;
+  name: string;
+  issuer: string;
+  issueDate: string; // YYYY-MM
   expirationDate: string | null;
-  status: CertStatus;
   image: string;
   credentialUrl: string;
-}
-
-export interface Project {
-  id: number;
-  name: string | LocalizedString;
-  description: string | LocalizedString;
-  technologies: string[];
-  category: Exclude<ProjectCategory, 'all'>;
-  image: string;
-  demoUrl: string | null;
-  featured: boolean;
-}
-
-export interface Education {
-  id: number;
-  institution: string;
-  program: string;
-  status: EducationStatus;
-  location: string;
-  period: string;
-  description: string;
-  icon: string;
-}
-
-export interface SkillCategory {
-  id: string;
-  nameKey: string;
-  skills: string[];
-}
-
-export interface JourneyStep {
-  id: number;
-  year: string;
-  titleKey: string;
-  descriptionKey: string;
-  icon: string;
-  type: 'development' | 'blockchain' | 'cybersecurity' | 'milestone';
-}
-
-export interface NavLink {
-  href: string;
-  labelKey: string;
 }

@@ -2,27 +2,33 @@
 
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import { RevealStyles } from '@/components/ui/Layout';
 import Hero from '@/components/sections/Hero';
+import Statement from '@/components/sections/Statement';
+import WorkIndex from '@/components/sections/WorkIndex';
+import Cases from '@/components/sections/Cases';
+import Software from '@/components/sections/Software';
 import About from '@/components/sections/About';
-import Education from '@/components/sections/Education';
 import Skills from '@/components/sections/Skills';
-import Certifications from '@/components/sections/Certifications';
-import Projects from '@/components/sections/Projects';
-import Journey from '@/components/sections/Journey';
+import Experience from '@/components/sections/Experience';
 import Contact from '@/components/sections/Contact';
 
+// Dark and light sections alternate; each light or dark block slides over the
+// previous one. Order: who I am, the work, the detail, the person, the proof, contact.
 export default function ClientPage() {
   return (
     <>
+      <RevealStyles />
       <Header />
-      <main>
+      <main id="main" tabIndex={-1}>
         <Hero />
+        <Statement />
+        <WorkIndex />
+        <Cases />
+        <Software />
         <About />
-        <Education />
         <Skills />
-        <Certifications />
-        <Projects />
-        <Journey />
+        <Experience />
         <Contact />
       </main>
       <Footer />
